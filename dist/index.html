@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101c24">
+  <meta name="description" content="Check the maths behind a fixed payout. Convert profit percentage to total return and calculate the break-even win rate. Free, transparent calculations.">
+  <title>Payout calculator — Market Entry Lab</title>
+  <link rel="icon" type="image/svg+xml" href="./mark.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#calculator">Skip to calculator</a>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Market Entry Lab home">
+        <img src="./mark.svg" width="40" height="40" alt="">
+        <span>Market Entry <strong>Lab</strong></span>
+      </a>
+      <a class="header-link" href="https://t.me/marketentrylab">Free notes in Telegram <svg class="link-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10"/></svg></a>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <h1 id="page-title">Know what<br>your payout means.</h1>
+        <p>An 80% profit payout and a 1.8× total return mean the same thing. Check the cash outcomes and the win rate needed to break even.</p>
+      </section>
+      <section class="worksheet" id="calculator" aria-label="Payout calculator">
+        <form class="inputs" id="payout-form" novalidate>
+          <h2>Check a payout</h2>
+          <div class="field">
+            <label for="stake">Stake per trade <span>USD</span></label>
+            <div class="input-wrap"><span class="input-prefix" aria-hidden="true">$</span><input id="stake" name="stake" type="number" inputmode="decimal" min="0.01" max="1000000" step="any" value="10" aria-describedby="stake-help error-message"></div>
+            <p class="field-help" id="stake-help">Amount risked on each trade.</p>
+          </div>
+          <fieldset class="mode-field">
+            <legend>How is the payout quoted?</legend>
+            <div class="mode-switch">
+              <label><input type="radio" name="mode" value="percent" checked><span>Profit %</span></label>
+              <label><input type="radio" name="mode" value="multiplier"><span>Total return ×</span></label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="payout" id="payout-label">Profit payout <span id="payout-unit">%</span></label>
+            <div class="input-wrap"><input id="payout" name="payout" type="number" inputmode="decimal" min="0" max="1000" step="any" value="80" aria-describedby="payout-help error-message"></div>
+            <p class="field-help" id="payout-help">Profit on a winning trade, excluding your stake.</p>
+          </div>
+          <p class="error-message" id="error-message" role="alert" hidden></p>
+          <div class="equivalence" id="equivalence">80% profit = 1.8× total return</div>
+          <p class="input-note">A losing trade loses the full stake. Fixed payout; fees and refunds excluded.</p>
+        </form>
+        <div class="results" id="results" aria-live="polite" aria-atomic="true">
+          <p class="result-label">Break-even win rate</p>
+          <output class="break-even" id="break-even">55.56<span>%</span></output>
+          <p class="result-explanation" id="result-explanation">Win more than 55.56% of trades to finish ahead, before fees. Rate rounded to two decimals.</p>
+          <dl class="cash-outcomes">
+            <div><dt>Winning trade profit</dt><dd class="positive" id="win-profit">+$8.00</dd></div>
+            <div><dt>Total returned on a win <span>(stake + profit)</span></dt><dd id="total-return">$18.00</dd></div>
+            <div><dt>Losing trade</dt><dd class="negative" id="loss">−$10.00</dd></div>
+          </dl>
+          <p class="formula" id="formula">Break-even = 1 ÷ (1 + 0.8)</p>
+        </div>
+        <div class="invalid-results" id="invalid-results" hidden><h2>Check your inputs</h2><p>A valid stake and payout are needed to calculate the result.</p></div>
+        <div class="scenario" id="scenario">
+          <div><h2>What if you win half?</h2><p>Hypothetical 100 trades: 50 wins, 50 losses, same stake and payout.</p></div>
+          <div class="scenario-outcome"><strong id="scenario-net">−$100.00</strong><span>net result, before fees</span></div>
+          <p class="scenario-calculation" id="scenario-calculation">50 × $8.00 − 50 × $10.00 = −$100.00</p>
+        </div>
+      </section>
+      <section class="explanation" aria-labelledby="why-title">
+        <div><h2 id="why-title">The payout changes the maths.</h2><p>A winning trade can pay less than a losing trade costs. That is why a 50% win rate can still lose money. The calculator shows the arithmetic; it does not estimate your chance of winning.</p></div>
+        <div class="next-step"><p>Want another example? See why doubling a stake can leave a loss even after a winning trade.</p><a class="primary-link" href="https://t.me/marketentrylab/4">Read the worked example <svg class="link-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10"/></svg></a></div>
+      </section>
+      <noscript><p class="noscript">JavaScript is needed to change the calculator inputs. The displayed example uses a $10 stake and 80% profit payout.</p></noscript>
+    </main>
+    <footer><p>Market Entry Lab · Calculations you can check.</p><p>Educational arithmetic. No market predictions or account connection. Your inputs stay in this browser.</p><a href="https://x.com/jesusegorqa">Follow the lab on X <svg class="link-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10"/></svg></a></footer>
+  </div>
+</body>
+</html>

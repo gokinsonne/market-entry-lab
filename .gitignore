@@ -1,0 +1,8 @@
+.impeccable/
+PRODUCT.md
+DESIGN.md
+surface-contract.md
+qa.md
+evidence/
+__pycache__/
+.env*
