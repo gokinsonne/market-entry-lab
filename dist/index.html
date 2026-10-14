@@ -43,16 +43,16 @@
           <div class="field">
             <label for="payout" id="payout-label">Profit payout <span id="payout-unit">%</span></label>
             <div class="input-wrap"><input id="payout" name="payout" type="number" inputmode="decimal" min="0" max="1000" step="any" value="80" aria-describedby="payout-help error-message"></div>
-            <p class="field-help" id="payout-help">Profit on a winning trade, excluding your stake.</p>
+            <p class="field-help" id="payout-help">Profit on a win, excluding your stake. Up to 6 decimal places.</p>
           </div>
           <p class="error-message" id="error-message" role="alert" hidden></p>
           <div class="equivalence" id="equivalence">80% profit = 1.8× total return</div>
-          <p class="input-note">A losing trade loses the full stake. Fixed payout; fees and refunds excluded.</p>
+          <p class="input-note">A losing trade loses the full stake. Fixed payout; fees and refunds excluded. Cash shown to the nearest cent.</p>
         </form>
         <div class="results" id="results" aria-live="polite" aria-atomic="true">
           <p class="result-label">Break-even win rate</p>
           <output class="break-even" id="break-even">55.56<span>%</span></output>
-          <p class="result-explanation" id="result-explanation">Win more than 55.56% of trades to finish ahead, before fees. Rate rounded to two decimals.</p>
+          <p class="result-explanation" id="result-explanation">The exact break-even rate is 100 ÷ (1 + 0.8)%. Finishing ahead requires a higher win rate, before fees. Display rounded to two decimals.</p>
           <dl class="cash-outcomes">
             <div><dt>Winning trade profit</dt><dd class="positive" id="win-profit">+$8.00</dd></div>
             <div><dt>Total returned on a win <span>(stake + profit)</span></dt><dd id="total-return">$18.00</dd></div>
