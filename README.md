@@ -1,6 +1,6 @@
 # Market Entry Lab payout calculator
 
-A dependency-free static utility for fixed-payout arithmetic. It converts profit percentage and total-return multiplier quotes, shows winning/loss cash outcomes and the mathematical break-even win rate, and clearly labels a hypothetical equal-count example. No market predictions, accounts, server-side data collection or affiliate links.
+A dependency-free static utility for fixed-payout arithmetic. It converts profit percentage and total-return multiplier quotes, shows winning/loss cash outcomes and the mathematical break-even win rate, and clearly labels a hypothetical equal-count example. No market predictions, accounts or server-side data collection. A separately labelled platform-notes section links to our existing Telegram demo/account guide and payment FAQ; the guide contains affiliate links. This site does not link directly to a broker registration or deposit form.
 
 Serve `dist/` with a static HTTP server. Tests: `node --test tests/maths.test.mjs` (Node 20+). Render static site: build command `true`, publish directory `dist`, branch `main`.
 
